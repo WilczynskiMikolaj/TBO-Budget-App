@@ -1,0 +1,12 @@
+/build/
+/cmake-build-*/
+
+CMakeUserPresets.json
+*.user
+*.user.*
+
+CMakeLists.txt.user*
+.qmake.stash
+
+.DS_Store
+Thumbs.db
