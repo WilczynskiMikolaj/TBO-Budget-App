@@ -23,10 +23,11 @@ qt_add_executable(TBO-Budget-App
     src/Statistics.cpp
     src/Statistics.h
     src/mainwindow.ui
-    src/Recents.h src/Recents.cpp
-    src/entrytablemodel.h src/entrytablemodel.cpp
-    src/EntryTableModel.h
-    src/EntryTableModel.cpp
+    src/Recents.h 
+    src/Recents.cpp
+    src/entrytablemodel.h 
+    src/entrytablemodel.cpp
+
 )
 
 target_link_libraries(TBO-Budget-App PRIVATE Qt6::Widgets)

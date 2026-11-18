@@ -5,7 +5,7 @@
 #include "CSVStorage.h"
 #include "Statistics.h"
 #include "Recents.h"
-#include "EntryTableModel.h"
+#include "entrytablemodel.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

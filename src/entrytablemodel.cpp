@@ -1,4 +1,4 @@
-#include "EntryTableModel.h"
+#include "entrytablemodel.h"
 
 #include <QDateTime>
 
