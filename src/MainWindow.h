@@ -1,17 +1,36 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QtWidgets>
+#include <QMainWindow>
+#include "CSVStorage.h"
+#include "Statistics.h"
+#include "Recents.h"
+#include "EntryTableModel.h"
 
-class MainWindow : public QMainWindow{
-    public:
-        MainWindow(QWiddget* parent=0);
-        ~MainWindow();
-    private:
-
-
+QT_BEGIN_NAMESPACE
+namespace Ui {
+class MainWindow;
 }
+QT_END_NAMESPACE
 
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
 
+public:
+    explicit MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
 
-#endif // MAINWINDOW_H
+private slots:
+    void on_AddEntryButton_clicked();
+    void UpdateTable();
+
+private:
+    Ui::MainWindow *ui;
+    CSVStorage *storage;
+    Statistics *statistics;
+    Recents *recents;
+    EntryTableModel *tableModel;
+};
+
+#endif

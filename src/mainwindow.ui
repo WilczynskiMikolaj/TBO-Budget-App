@@ -6,26 +6,92 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1600</width>
+    <height>900</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>MainWindow</string>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <property name="windowTitle">
+   <string>Budżeter Pro Desktop</string>
+  </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="AddEntryButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Dodaj Wpis</string>
+    </property>
+   </widget>
+   <widget class="QTableView" name="tableView">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>61</y>
+      <width>1571</width>
+      <height>781</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>22</height>
+     <width>1600</width>
+     <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuBud_eter_Pro_Desktop">
+    <property name="title">
+     <string>Plik</string>
+    </property>
+    <addaction name="actionZapisz"/>
+    <addaction name="actionWczytaj"/>
+    <addaction name="separator"/>
+    <addaction name="actionZamknij_2"/>
+   </widget>
+   <addaction name="menuBud_eter_Pro_Desktop"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionZapisz">
+   <property name="text">
+    <string>Zapisz</string>
+   </property>
+  </action>
+  <action name="actionWczytaj">
+   <property name="text">
+    <string>Wczytaj</string>
+   </property>
+  </action>
+  <action name="actionZamknij">
+   <property name="text">
+    <string>Zamknij</string>
+   </property>
+  </action>
+  <action name="actionZamknij_2">
+   <property name="text">
+    <string>Zamknij</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
+ <slots>
+  <slot>AddEntryButtonPressed()</slot>
+ </slots>
 </ui>
