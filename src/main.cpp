@@ -1,12 +1,25 @@
-#include <QApplication>
-#include <QLabel>
-#include "MainWindow.h"
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
 
-int main(int argc, char *argv[]) {
-    QApplication app(argc, argv);
+#include "AppBackend.hpp"
 
-    MainWindow main;
-    main.show();
+
+int main(int argc, char **argv)
+{
+    QGuiApplication app(argc, argv);
+
+    QQmlApplicationEngine engine;
+
+    AppBackend backend;
+    engine.rootContext()->setContextProperty(
+        "backend", &backend
+    );
+
+    engine.loadFromModule("TBO", "Main");
+
+    if (engine.rootObjects().isEmpty())
+        return -1;
 
     return app.exec();
 }

@@ -15,15 +15,6 @@ Rectangle {
     readonly property int typeWidth: 158
     readonly property int amountWidth: 170
 
-    ListModel {
-        id: entries
-        ListElement { dateText: "03.11.2026"; kind: "Przychód"; amountText: "+6 800,00 zł"; commentText: "Wynagrodzenie za listopad" }
-        ListElement { dateText: "05.11.2026"; kind: "Wydatek"; amountText: "−246,80 zł"; commentText: "Zakupy w Biedronce" }
-        ListElement { dateText: "07.11.2026"; kind: "Wydatek"; amountText: "−1 850,00 zł"; commentText: "Czynsz za mieszkanie" }
-        ListElement { dateText: "12.11.2026"; kind: "Wydatek"; amountText: "−112,40 zł"; commentText: "Bilet miesięczny ZTM" }
-        ListElement { dateText: "18.11.2026"; kind: "Przychód"; amountText: "+1 650,00 zł"; commentText: "Zlecenie graficzne" }
-    }
-
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 6
@@ -103,7 +94,7 @@ Rectangle {
             Layout.fillWidth: true
             Layout.fillHeight: true
             clip: true
-            model: entries
+            model: backend.wpisyModel
             boundsBehavior: Flickable.StopAtBounds
 
             delegate: Item {
