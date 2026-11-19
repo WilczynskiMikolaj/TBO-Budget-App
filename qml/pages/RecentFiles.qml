@@ -72,7 +72,7 @@ Rectangle {
                         spacing: 5
 
                         Text {
-                            text: fileRow.modelData.split("/").pop()
+                            text: fileRow.modelData.split(/[\\/]/).pop()
                             font.pixelSize: 20
                             font.bold: true
                             color: "#091B15"
