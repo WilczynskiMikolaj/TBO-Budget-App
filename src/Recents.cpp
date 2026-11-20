@@ -26,3 +26,11 @@ void Recents::dodajPlik(const QString &sciezka)
 
     settings.setValue("recentFiles", lista);
 }
+
+void Recents::wyczysc()
+{
+    QSettings settings("TBO", "TBO");
+
+    QStringList lista;
+    settings.setValue("recentFiles", lista);
+}

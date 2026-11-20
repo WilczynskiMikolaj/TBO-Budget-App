@@ -16,7 +16,7 @@ ApplicationWindow {
     title: "TBO"
     color: "#FAF9F6"
 
-    property int currentPage: 0
+    property int currentPage: 2
 
     readonly property var pageTitles: [
         "Skoroszyt",
@@ -43,9 +43,12 @@ ApplicationWindow {
             Layout.fillWidth: true
             Layout.fillHeight: true
 
-            currentIndex: window.currentPage === 0 ? 0 : 1
+            currentIndex: window.currentPage
 
             Workbook {
+            }
+
+            Calculator{
             }
 
 

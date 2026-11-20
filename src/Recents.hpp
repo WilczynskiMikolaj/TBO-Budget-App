@@ -8,4 +8,5 @@ class Recents
 public:
     QStringList pliki() const;
     void dodajPlik(const QString &sciezka);
+    void wyczysc();
 };

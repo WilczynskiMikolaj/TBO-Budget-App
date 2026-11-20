@@ -43,6 +43,10 @@ set_source_files_properties(qml/pages/RecentFiles.qml
     PROPERTIES QT_RESOURCE_ALIAS "pages/RecentFiles.qml"
 )
 
+set_source_files_properties(qml/pages/Calculator.qml
+    PROPERTIES QT_RESOURCE_ALIAS "pages/Calculator.qml"
+)
+
 set_source_files_properties(qml/components/Sidebar.qml
     PROPERTIES QT_RESOURCE_ALIAS "components/Sidebar.qml"
 )
@@ -55,6 +59,7 @@ set_source_files_properties(qml/components/TransactionsTable.qml
     PROPERTIES QT_RESOURCE_ALIAS "components/TransactionsTable.qml"
 )
 
+
 qt_add_qml_module(TBO
     URI TBO
     VERSION 1.0
@@ -63,6 +68,7 @@ qt_add_qml_module(TBO
         qml/Main.qml
         qml/pages/Workbook.qml
         qml/pages/RecentFiles.qml
+        qml/pages/Calculator.qml
         qml/components/Sidebar.qml
         qml/components/AppButton.qml
         qml/components/TransactionsTable.qml

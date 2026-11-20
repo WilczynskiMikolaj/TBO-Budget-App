@@ -27,11 +27,12 @@ class AppBackend : public QObject{
         Q_INVOKABLE bool zapiszCsv(const QUrl &url);
         Q_INVOKABLE bool otworzOstatniPlik(const QString &sciezka);
         Q_INVOKABLE bool otworzCsv(const QUrl &url);
-
+        Q_INVOKABLE bool wyczyscRecentFiles();
         
         int wpisCount() const;
         QAbstractItemModel* wpisyModel();
         QStringList recentFiles() const;
+
 
     signals:
         void wpisCountChanged();

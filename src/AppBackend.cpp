@@ -85,6 +85,12 @@ QStringList AppBackend::recentFiles() const{
     return m_recentFiles.pliki();
 }
 
+bool AppBackend::wyczyscRecentFiles() {
+    m_recentFiles.wyczysc();
+    emit recentFilesChanged();
+    return true;
+}
+
 bool AppBackend::otworzOstatniPlik(const QString &sciezka){
     return otworzCsv(QUrl::fromLocalFile(sciezka));
 }

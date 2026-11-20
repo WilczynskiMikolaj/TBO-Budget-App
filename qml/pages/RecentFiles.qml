@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import "../components"
 
 Rectangle {
     id: root
@@ -23,6 +24,18 @@ Rectangle {
                 font.bold: true
                 color: "#091B15"
             }
+
+            Item {
+                Layout.fillWidth: true
+            }
+
+            AppButton {
+                label: "Wyczyść"
+                symbol: "-"
+                primary: false
+
+                onClicked: backend.wyczyscRecentFiles()
+            }
         }
 
         Rectangle {
@@ -42,12 +55,21 @@ Rectangle {
             }
 
             ListView {
+                id: recentFilesList
                 anchors.fill: parent
                 anchors.margins: 20
                 clip: true
                 spacing: 10
 
                 model: backend.recentFiles
+
+                function openRecentFile(path) {
+                    if (backend.otworzOstatniPlik(path)) {
+                        root.fileOpened()
+                    } else {
+                        errorDialog.open()
+                    }
+                }
 
                 delegate: Rectangle {
                     id: fileRow
@@ -94,11 +116,7 @@ Rectangle {
                         cursorShape: Qt.PointingHandCursor
 
                         onClicked: {
-                            if (backend.otworzOstatniPlik(fileRow.modelData)) {
-                                root.fileOpened()
-                            } else {
-                                errorDialog.open()
-                            }
+                            recentFilesList.openRecentFile(fileRow.modelData)
                         }
                     }
                 }
