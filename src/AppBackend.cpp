@@ -3,7 +3,6 @@
 
 #include "AppBackend.hpp"
 
-
 AppBackend::AppBackend(QObject *parent) : QObject(parent), m_workbook(this), m_wpisyModel(&m_workbook, this) {
     
     connect(&m_workbook, &WorkbookManager::wpisyChanged, this, &AppBackend::wpisCountChanged);
@@ -42,6 +41,12 @@ bool AppBackend::addWpis(const QString &date, const QString &type, double amount
 
     m_workbook.addWpis(wpis);
 
+    return true;
+}
+
+bool AppBackend::removeWpis(int id)
+{
+    m_workbook.removeWpis(id);
     return true;
 }
 

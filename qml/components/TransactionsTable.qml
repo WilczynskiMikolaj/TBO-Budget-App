@@ -99,6 +99,8 @@ Rectangle {
 
             delegate: Item {
                 id: rowItem
+
+                required property int index
                 required property string dateText
                 required property string kind
                 required property string amountText
@@ -169,6 +171,14 @@ Rectangle {
                         color: "#17201B"
                         elide: Text.ElideRight
                     }
+
+                    AppButton {
+                        label: "Usuń"
+                        symbol: "X"
+                        primary: true
+
+                        onClicked: {backend.removeWpis(rowItem.index)}
+                    }
                 }
                 Rectangle {
                     anchors.bottom: parent.bottom
@@ -176,6 +186,22 @@ Rectangle {
                     anchors.right: parent.right
                     height: 1
                     color: "#E4E9E5"
+                }
+
+                Menu {
+                    id: contextMenu
+
+                    MenuItem {
+                        text: "Usuń wiersz"
+                        onTriggered: {backend.removeWpis(rowItem.index)}
+                    }
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    acceptedButtons: Qt.RightButton
+                    z: -1
+                    onClicked: {contextMenu.popup(rowItem, Qt.point(mouse.x, mouse.y))}
                 }
             }
         }

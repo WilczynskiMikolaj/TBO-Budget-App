@@ -23,6 +23,7 @@ class AppBackend : public QObject{
 
         Q_INVOKABLE int transactionCount() const;
         Q_INVOKABLE bool addWpis(const QString &date, const QString &type, double amount, const QString &comment);
+        Q_INVOKABLE bool removeWpis(int id);
         Q_INVOKABLE bool zapiszCsv(const QUrl &url);
         Q_INVOKABLE bool otworzOstatniPlik(const QString &sciezka);
         Q_INVOKABLE bool otworzCsv(const QUrl &url);
