@@ -1,39 +1,36 @@
-#include "Recents.h"
+#include "Recents.hpp"
 
-#include<QDebug>
+#include <QSettings>
+#include <QFileInfo>
 
-Recents::Recents()
+QStringList Recents::pliki() const
 {
-    paths = std::vector<std::string>();
+    QSettings settings("TBO", "TBO");
+
+    return settings.value("recentFiles").toStringList();
 }
 
-Recents::~Recents(){}
-
-std::vector<std::string> Recents::Get_List()
+void Recents::dodajPlik(const QString &sciezka)
 {
-    return paths;
+    QSettings settings("TBO", "TBO");
+
+    QStringList lista = pliki();
+    QString sciezkaPliku = QFileInfo(sciezka).absoluteFilePath();
+
+    lista.removeAll(sciezkaPliku);
+
+    lista.prepend(sciezkaPliku);
+
+    while (lista.size() > 8)
+        lista.removeLast();
+
+    settings.setValue("recentFiles", lista);
 }
 
-void Recents::Add(std::string path)
+void Recents::wyczysc()
 {
-    //TODO
-    qDebug( "Recents::Add not implemented yet" );
-}
+    QSettings settings("TBO", "TBO");
 
-void Recents::Save()
-{
-    //TODO
-    qDebug( "Recents::Save not implemented yet" );
-}
-
-void Recents::Load()
-{
-    //TODO
-    qDebug( "Recents::Load not implemented yet" );
-}
-
-void Recents::Clear()
-{
-    //TODO
-    qDebug( "Recents::Clear not implemented yet" );
+    QStringList lista;
+    settings.setValue("recentFiles", lista);
 }
